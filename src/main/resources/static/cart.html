@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Aurora Bookstore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Aurora Bookstore</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cart.html" class="cart-icon">
+                Cart
+                <span class="cart-count" id="cart-count" style="display:none;">0</span>
+            </a>
+            <span id="auth-link"></span>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-container">
+            <!-- Cart items injected by JS -->
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

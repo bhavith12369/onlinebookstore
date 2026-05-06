@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Aurora Bookstore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Aurora Bookstore</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cart.html" class="cart-icon">
+                Cart
+                <span class="cart-count" id="cart-count" style="display:none;">0</span>
+            </a>
+            <span id="auth-link"></span>
+        </div>
+    </nav>
+
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+        <div class="auth-container">
+            <h2 style="text-align: center;">Welcome Back</h2>
+            <div id="message-box" class="message"></div>
+            
+            <form id="auth-form" onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Login</button>
+            </form>
+            
+            <div class="auth-links">
+                Don't have an account? <a href="#" onclick="toggleMode()">Sign up</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        let isLogin = true;
+        function toggleMode() {
+            isLogin = !isLogin;
+            const form = document.getElementById('auth-form');
+            const title = document.querySelector('h2');
+            const links = document.querySelector('.auth-links');
+            const btn = document.querySelector('.btn');
+            const msg = document.getElementById('message-box');
+            
+            msg.style.display = 'none';
+            
+            if (isLogin) {
+                title.textContent = 'Welcome Back';
+                btn.textContent = 'Login';
+                form.onsubmit = login;
+                links.innerHTML = 'Don\'t have an account? <a href="#" onclick="toggleMode()">Sign up</a>';
+            } else {
+                title.textContent = 'Create Account';
+                btn.textContent = 'Register';
+                form.onsubmit = register;
+                links.innerHTML = 'Already have an account? <a href="#" onclick="toggleMode()">Login</a>';
+            }
+        }
+    </script>
+</body>
+</html>
